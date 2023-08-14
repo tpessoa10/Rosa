@@ -6,7 +6,8 @@ import { join } from 'path';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
-  await app.listen("0000");
+  const port = process.env.PORT || 3000;
+  await app.listen(port, "0.0.0.0");
 
   app.useStaticAssets(join(__dirname, '..', 'public'))
   app.setBaseViewsDir(join(__dirname, '..', 'views'))
