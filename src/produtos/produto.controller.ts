@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Redirect, Render } from "@nestjs/common";
+import { Body, Controller, Get, Post, Query, Redirect, Render } from "@nestjs/common";
 import { ProdutosRepository } from "./produto.repository";
 import { ProdutoDto } from "./dto/produtos.dto";
 
@@ -9,6 +9,7 @@ export class ProdutosController{
     @Get('/listar')
     @Render('listar')
     public listaProdutos(){
+        console.log({produtos: this.produtoRepository.listarProdutos()})
         return {produtos: this.produtoRepository.listarProdutos()}
     }
 
@@ -22,5 +23,12 @@ export class ProdutosController{
     @Redirect('/produtos/listar')
     public Post(@Body() dadosProdutos:ProdutoDto){
         this.produtoRepository.salvarProduto(dadosProdutos)
+    }
+
+    @Get('/alternar-status')
+    @Redirect('/produtos/listar')
+    public alternarStatus(@Query('id') idProduto:string){
+        this.produtoRepository.alternarStatus(idProduto)
+        return
     }
 }

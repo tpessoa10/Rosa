@@ -5,4 +5,10 @@ export class ProdutoDto{
     taxaRentabilidade: string
     taxaAdministracao: string
     vencimento: Date
+    status: ProdutoStatus
+}
+
+export enum ProdutoStatus {
+    DISPONIVEL = 'Disponivel',
+    INDISPONIVEL = 'Indisponivel'
 }

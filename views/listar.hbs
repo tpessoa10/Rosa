@@ -16,9 +16,16 @@
         </tr>
         {{#each produtos as |produto|}}
         <tr>
-            <th>{{produto.id}}</th>
-            <th>{{produto.nome}}</th>
-            <th>{{produto.taxaRentabilidade}}</th>
+            <td>{{produto.id}}</td>
+            <td>{{produto.nome}}</td>
+            <td>{{produto.taxaRentabilidade}}</td>
+            <td><a href="/produtos/alternar-status?id={{produto.id}}">
+                {{#if produto.disponivel}}
+                    Suspender
+                {{else}}
+                    Disponibilizar
+                {{/if}}
+            </a></td>
         </tr>
         {{/each}}
     </table>
