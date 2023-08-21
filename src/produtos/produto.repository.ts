@@ -1,12 +1,13 @@
 import { Injectable } from "@nestjs/common";
 import { ProdutosController } from "./produto.controller";
 import { ulid } from "ulidx";
+import { ProdutoDto } from "./dto/produtos.dto";
 
 @Injectable()
 export class ProdutosRepository{
-    private produtos = []
+    public produtos = []
 
-    async salvarProduto(produto){
+    public salvarProduto(produto:ProdutoDto){
         const novoProduto = {
             ...produto,
             id: ulid()
@@ -15,7 +16,7 @@ export class ProdutosRepository{
         return novoProduto
     }
 
-    async listarProdutos(){
+    public listarProdutos(){
         return this.produtos
     }
 }

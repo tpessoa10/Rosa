@@ -7,16 +7,20 @@ export class ProdutosController{
     constructor(public produtoRepository: ProdutosRepository){}
 
     @Get('/listar')
-    async listaProdutos(){
-        this.produtoRepository.listarProdutos()
+    @Render('listar')
+    public listaProdutos(){
+        return {produtos: this.produtoRepository.listarProdutos()}
     }
 
     @Get('/novo')
     @Render('form')
+    public formularioProduto(){
+        return;
+    }
 
     @Post('/salvar')
-    @Redirect('produtos/listar')
-    async Post(@Body() dadosProdutos:ProdutoDto){
+    @Redirect('/produtos/listar')
+    public Post(@Body() dadosProdutos:ProdutoDto){
         this.produtoRepository.salvarProduto(dadosProdutos)
     }
 }
