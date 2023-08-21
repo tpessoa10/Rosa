@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Cadastrar Produto</h1>
+    <form action="/produtos/salvar" method="post">
+        <input type="text" placeholder="Nome" name="Nome">
+        <input type="text" placeholder="Destinacao" name="Destinacao">
+        <input type="number" step="1" name="taxaRentabilidade" placeholder="Taxa Rentabilidade">   
+        <input type="number" step="1" name="taxaAdministracao" placeholder="Taxa de Administração"> 
+        <input type="date" name="vencimento">  
+        <input type="submit" value="Cadastrar Produto">
+    </form>
+    
+</body>
+</html>
