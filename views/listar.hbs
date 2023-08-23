@@ -13,18 +13,17 @@
             <th>#</th>
             <th>Nome</th>
             <th>Taxa de Juros</th>
+            <th>Status</th>
         </tr>
         {{#each produtos as |produto|}}
         <tr>
             <td>{{produto.id}}</td>
             <td>{{produto.nome}}</td>
             <td>{{produto.taxaRentabilidade}}</td>
+            <td>{{produto.status}}</td>
             <td><a href="/produtos/alternar-status?id={{produto.id}}">
-                {{#if produto.disponivel}}
-                    Suspender
-                {{else}}
-                    Disponibilizar
-                {{/if}}
+                Alterar Status
+            <a href="/produtos/remover?id={{produto.id}}">Remover</a>
             </a></td>
         </tr>
         {{/each}}

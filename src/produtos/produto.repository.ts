@@ -29,10 +29,16 @@ export class ProdutosRepository{
     public alternarStatus(idProduto:string): void{
         const produto = this.procurarPorId(idProduto)
          if(produto.status === 'Disponivel'){
-             produto.status = !produto.status
+             produto.status = 'Indisponivel'
          } else if (produto.status === 'Indisponivel'){
-             produto.status = produto.status
+             produto.status = 'Disponivel'
          }
         return produto
+    }
+
+    public remove(id:string){
+        const produto = this.produtos.findIndex(p => p.id === id)
+        if(produto === -1) return
+        this.produtos.splice(produto, 1)
     }
 }
